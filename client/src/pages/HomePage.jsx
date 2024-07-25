@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import LiveScores from "../components/LiveScores";
 
 function HomePage() {
   return (
@@ -20,6 +21,7 @@ function HomePage() {
       >
         Get Started
       </Link>
+      <LiveScores />
     </header>
   </section>
   );
