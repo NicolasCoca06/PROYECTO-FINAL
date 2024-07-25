@@ -9,7 +9,9 @@ import { BetFormPage } from "./pages/BetFormPage";
 import { LoginPage } from "./pages/LoginPage";
 import { BetsPage } from "./pages/BetsPage";
 import { BetProvider } from "./context/betsContext";
-import { ForgotPasswordPage } from "./pages/ForgotPasswordPage";
+import  ForgotPassword from "./pages/ForgotPassword";
+import ResetPassword from "./pages/ResetPassword";
+import { UpcomingEventsPage } from "./pages/UpcomingEventsPage";
 
 function App() {
   return (
@@ -22,7 +24,11 @@ function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/register" element={<RegisterPage />} />
-              <Route path="/forgot-password" element={<ForgotPasswordPage/>} />
+              <Route path="/forgot-password" element={<ForgotPassword/>} />
+              <Route path="/upcoming-events" element={<UpcomingEventsPage/>} />
+              <Route path="/reset_password/:id/:token" element={<ResetPassword />}></Route>
+
+
               <Route element={<ProtectedRoute />}>
                 <Route path="/bets" element={<BetsPage />} />
                 <Route path="/add-bet" element={<BetFormPage />} />
