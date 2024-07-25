@@ -12,6 +12,7 @@ import { BetProvider } from "./context/betsContext";
 import  ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
 import { UpcomingEventsPage } from "./pages/UpcomingEventsPage";
+import { ProfilePage } from "./pages/ProfilePage";
 
 function App() {
   return (
@@ -33,7 +34,7 @@ function App() {
                 <Route path="/bets" element={<BetsPage />} />
                 <Route path="/add-bet" element={<BetFormPage />} />
                 <Route path="/bets/:id" element={<BetFormPage />} />
-                <Route path="/profile" element={<h1>Profile</h1>} />
+                <Route path="/profile" element={<ProfilePage/>} />
               </Route>
             </Routes>
           </main>
