@@ -1,4 +1,4 @@
-insturctions
+instructions
 clone the https direction
 install mongo db
 watch the config file to connect to the database
