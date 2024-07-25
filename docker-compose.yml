@@ -1,9 +1,9 @@
 version: '3.8'
 
 services:
-  tasksdb:
+  betsdb:
     image: mongo
-    container_name: tasksdb
+    container_name: betsdb
     restart: always
     ports:
       - 27017:27017
