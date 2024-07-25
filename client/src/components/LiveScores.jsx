@@ -1,7 +1,7 @@
 import { set } from "mongoose";
 import React, {useEffect, useState} from "react";
 
-const UpcomingFixtures = () => {
+const LiveScores = () => {
     const [fixtures, setFixtures] = useState([]);
     const [error, setError] = useState(null);
 
@@ -51,4 +51,4 @@ const UpcomingFixtures = () => {
     );
 }
 
-export default UpcomingFixtures;
+export default LiveScores;
