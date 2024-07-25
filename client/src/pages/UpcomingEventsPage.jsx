@@ -1,33 +1,56 @@
-import { useEffect } from "react";
 import { useBets } from "../context/betsContext";
 import { BetCard } from "../components/bets/BetCard";
 import { ImFileEmpty } from "react-icons/im";
+import { data } from "autoprefixer";
+import React, {useEffect, useState} from "react";
+
 
 export function UpcomingEventsPage() {
-  const { bets, getBets } = useBets();
+  const [events, setEvents] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    getBets();
+    fetch('http://localhost:4000/api/fixtures')
+    .then(res => {
+        if (!res.ok) {
+            throw new Error('Network response was not ok ' + res.statusText);
+        }
+        return res.json();
+    })
+    .then(data => {
+        if (data && data.response) {
+            setEvents(data.response);
+        } else {
+            setError('Unexpected data format');
+        }
+    })
+    .catch(error => {
+        console.error('Error fetching fixtures:', error);
+        setError(error.message);
+    });
   }, []);
 
-  return (
-    <>
-      {bets.length === 0 && (
-        <div className="flex justify-center items-center p-10">
-          <div>
-            <ImFileEmpty className="text-6xl text-gray-400 m-auto my-2" />
-            <h1 className="font-bold text-xl">
-              No bets yet, please add a new bet
-            </h1>
-          </div>
-        </div>
-      )}
+ if (error) {
+  return <div>Error: {error}</div>;
+ }
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-2">
-        {bets.map((bet) => (
-          <BetCard bet={bet} key={bet._id} />
-        ))}
-      </div>
-    </>
-  );
+  return (
+    <div>
+        <h1>Upcoming Football Events</h1>
+        <div id="events-container">
+            {events.map((event, index) => (
+                <div key={index} className="fixture">
+                    <h2>
+                        <img src={event.teams.home.logo} alt={event.teams.home.name} />
+                        {event.teams.home.name} vs {event.teams.away.name}
+                        <img src={event.teams.away.logo} alt={event.teams.away.name} />
+                    </h2>
+                    <p>Date: {new Date(event.fixture.date).toLocaleString()}</p>
+                </div>
+            ))}
+        </div>
+    </div>
+);
 }
+
+export default UpcomingEventsPage;

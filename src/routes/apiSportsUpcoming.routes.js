@@ -5,8 +5,6 @@ const router = express.Router();
 
 // GET upcoming fixtures with pagination
 router.get('/fixtures', function(req, res) {
-    /* const { page = 1, limit = 15 } = req.query;
-    const offset = (page - 1) * limit; */
 
     // Fetch upcoming fixtures
     const options = {
@@ -27,14 +25,6 @@ router.get('/fixtures', function(req, res) {
         } else {
             const data = JSON.parse(body);
             res.json(data);
-            /* const fixtures = data.response;
-            const paginatedFixtures = fixtures.slice(offset, offset + limit);
-            res.json({
-                fixtures: paginatedFixtures,
-                total: fixtures.length,
-                page: Number(page),
-                limit: Number(limit)
-            }); */
         }
     });
 });

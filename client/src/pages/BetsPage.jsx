@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { useBets } from "../context/betsContext";
 import { BetCard } from "../components/bets/BetCard";
 import { ImFileEmpty } from "react-icons/im";
+import UpcomingEventsPage from "./UpcomingEventsPage";
+import LiveScores from "../components/LiveScores";
 
 export function BetsPage() {
   const { bets, getBets } = useBets();
@@ -28,6 +30,8 @@ export function BetsPage() {
           <BetCard bet={bet} key={bet._id} />
         ))}
       </div>
+      <LiveScores />
+      <UpcomingEventsPage />
     </>
   );
 }
