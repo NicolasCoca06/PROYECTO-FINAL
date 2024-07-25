@@ -1,0 +1,34 @@
+@api = http://localhost:4000/api/bets
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZjI1MDcyODM1ZWFkMTQ2MTJjOWE3OCIsInVzZXJuYW1lIjoicnlhbiIsImlhdCI6MTY3NjgyNDY5MCwiZXhwIjoxNjc2OTExMDkwfQ.Pvldt1v-iUPgnGKtZKb2RUtFohoVmOUsEENtdJi_NSc
+
+### GET /bets - Auth required
+GET {{api}}
+Authorization: {{token}}
+
+### POST /bets
+POST {{api}}
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "fixture": "Team1 vs Team2",
+  "description": "Home",
+  "date": "2023-02-01T00:00:00Z"
+}
+
+### DELETE /bets
+DELETE {{api}}/63f256b575d10c34095ab5a4
+Authorization: {{token}}
+
+### GET /bets/:id - Auth required
+GET {{api}}/63f25705f3c17dc1ef38d1c9
+Authorization: {{token}}
+
+### UPDATE /bets - Auth required
+PUT {{api}}/63f25705f3c17dc1ef38d1c9
+Authorization: {{token}}
+Content-Type: application/json
+
+{
+  "fixture": "test1 "
+}
