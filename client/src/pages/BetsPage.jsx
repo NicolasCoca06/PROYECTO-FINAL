@@ -1,16 +1,27 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useBets } from "../context/betsContext";
 import { BetCard } from "../components/bets/BetCard";
 import { ImFileEmpty } from "react-icons/im";
 import UpcomingEventsPage from "./UpcomingEventsPage";
 import LiveScores from "../components/LiveScores";
+import { getRecommendations } from "../services/api";  
 
 export function BetsPage() {
   const { bets, getBets } = useBets();
-
+  const [recommendation, setRecommendation] = useState('');  
   useEffect(() => {
     getBets();
   }, []);
+
+  const handleGetRecommendations = async () => {
+    try {
+      const recommendationResult = await getRecommendations("Provide some user data or criteria here");
+      setRecommendation(recommendationResult);
+    } catch (error) {
+      console.error("Error fetching recommendations:", error);
+      setRecommendation("Failed to fetch recommendations");
+    }
+  };
 
   return (
     <>
@@ -30,6 +41,15 @@ export function BetsPage() {
           <BetCard bet={bet} key={bet._id} />
         ))}
       </div>
+      <button onClick={handleGetRecommendations} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        Get Recommendations
+      </button>
+      {recommendation && (
+        <div className="mt-4 bg-gray-100 border border-gray-200 p-4 rounded">
+          <h2 className="text-lg font-semibold">Recommendations:</h2>
+          <p>{recommendation}</p>
+        </div>
+      )}
       <LiveScores />
       <UpcomingEventsPage />
     </>
