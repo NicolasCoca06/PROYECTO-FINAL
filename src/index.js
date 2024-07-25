@@ -1,7 +1,7 @@
 import app from "./app.js";
 import { PORT } from "./config.js";
 import { connectDB } from "./db.js";
-import UserModel from './models/user.model.js'; // Asegúrate de que la ruta es correcta
+import UserModel from './models/user.model.js'; 
 import jwt from 'jsonwebtoken';
 import nodemailer from 'nodemailer';
 
