@@ -13,6 +13,7 @@ import  ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
 import { UpcomingEventsPage } from "./pages/UpcomingEventsPage";
 import { ProfilePage } from "./pages/ProfilePage";
+import LiveScores from "./components/LiveScores";
 
 function App() {
   return (
@@ -27,6 +28,8 @@ function App() {
               <Route path="/register" element={<RegisterPage />} />
               <Route path="/forgot-password" element={<ForgotPassword/>} />
               <Route path="/upcoming-events" element={<UpcomingEventsPage/>} />
+              <Route path="/live-scores" element={<LiveScores />} />
+
               <Route path="/reset_password/:id/:token" element={<ResetPassword />}></Route>
 
 
