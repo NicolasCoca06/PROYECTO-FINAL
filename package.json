@@ -1,7 +1,7 @@
 {
-  "name": "mern-tasks",
+  "name": "BETSMART",
   "version": "1.0.0",
-  "description": "A MERN CRUD with Authentication",
+  "description": "A bet web app using AI for recommendations",
   "main": "index.js",
   "type": "module",
   "scripts": {
