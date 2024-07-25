@@ -3,6 +3,6 @@ import { generateBettingRecommendations } from "../controllers/recommender.contr
 
 const router = Router();
 
-router.get('/betting-recommendations', generateBettingRecommendations);
+router.post('/recommend', generateBettingRecommendations);
 
 export default router;

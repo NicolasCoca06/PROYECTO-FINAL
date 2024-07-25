@@ -2,7 +2,7 @@ import { getUserBettingHistory, analyzeBettingPatterns } from '../services/betAn
 import { generateContent } from '../services/geminiService.js';
 
 export const generateBettingRecommendations = async (req, res) => {
-  const userId = req.user._id;  
+  const userId = req.user._id;
 
   try {
     const bets = await getUserBettingHistory(userId);
