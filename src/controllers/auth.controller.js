@@ -6,7 +6,7 @@ import { createAccessToken } from "../libs/jwt.js";
 
 export const register = async (req, res) => {
   try {
-    const { username, email, password } = req.body;
+    const { username, email, phone, password } = req.body;
 
     const userFound = await User.findOne({ email });
 
@@ -22,6 +22,7 @@ export const register = async (req, res) => {
     const newUser = new User({
       username,
       email,
+      phone,
       password: passwordHash,
     });
 
@@ -43,6 +44,7 @@ export const register = async (req, res) => {
       id: userSaved._id,
       username: userSaved.username,
       email: userSaved.email,
+      phone: userSaved.phone
     });
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -81,6 +83,7 @@ export const login = async (req, res) => {
       id: userFound._id,
       username: userFound.username,
       email: userFound.email,
+      phone : userFound.phone
     });
   } catch (error) {
     return res.status(500).json({ message: error.message });
@@ -101,6 +104,7 @@ export const verifyToken = async (req, res) => {
       id: userFound._id,
       username: userFound.username,
       email: userFound.email,
+      phone : userFound.phone
     });
   });
 };

@@ -39,6 +39,10 @@ export function ProfilePage() {
           <div className="mb-3">
             <strong>Email:</strong> {user.email}
           </div>
+          <div className="mb-3">
+            <strong>Phone:</strong> {user.phone}
+          </div>
+
           {/* Agrega más campos del perfil según sea necesario */}
         </div>
       )}

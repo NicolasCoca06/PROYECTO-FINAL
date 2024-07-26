@@ -55,6 +55,16 @@ function Register() {
             <p className="text-red-500">{errors.email?.message}</p>
           )}
 
+          <Label htmlFor="email">Phone:</Label>
+          <Input
+            name="phone"
+            placeholder="phone number"
+            {...register("phone")}
+          />
+          {errors.phone?.message && (
+            <p className="text-red-500">{errors.phone?.message}</p>
+          )}
+
           <Label htmlFor="password">Password:</Label>
           <Input
             type="password"
