@@ -41,6 +41,7 @@ const LiveScores = () => {
                             {fixture.teams.home.name} {fixture.goals.home} vs {fixture.goals.away} {fixture.teams.away.name}
                             <img src={fixture.teams.away.logo} alt={fixture.teams.away.name} />
                         </h2>
+                        <p>Fixture ID: {fixture.fixture.id}</p>
                         <p>Date: {new Date(fixture.fixture.date).toLocaleString()}</p>
                         <p>Status: {fixture.fixture.status.long}</p>
                         <p>Elapsed: {fixture.fixture.status.elapsed} minutes</p>
