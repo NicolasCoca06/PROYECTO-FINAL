@@ -36,7 +36,7 @@ export function UpcomingEventsPage() {
 
   return (
     <div>
-        <h1>Upcoming Football Events</h1>
+        <h1 className="text-5xl py-2 font-bold">Upcoming Football Events</h1>
         <div id="events-container">
             {events.map((event, index) => (
                 <div key={index} className="fixture">
