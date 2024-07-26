@@ -14,6 +14,7 @@ import ResetPassword from "./pages/ResetPassword";
 import { UpcomingEventsPage } from "./pages/UpcomingEventsPage";
 import { ProfilePage } from "./pages/ProfilePage";
 import LiveScores from "./components/LiveScores";
+import BettingOdds from "./components/bettingodds";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
               <Route path="/forgot-password" element={<ForgotPassword/>} />
               <Route path="/upcoming-events" element={<UpcomingEventsPage/>} />
               <Route path="/live-scores" element={<LiveScores />} />
+              <Route path="/odds" element={<BettingOdds />}/>
 
               <Route path="/reset_password/:id/:token" element={<ResetPassword />}></Route>
 
