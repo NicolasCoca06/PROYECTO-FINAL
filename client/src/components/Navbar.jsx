@@ -21,6 +21,9 @@ export function Navbar() {
               <ButtonLink to="/add-bet">Add Bet</ButtonLink>
             </li>
             <li>
+              <ButtonLink to="/profile">Profile</ButtonLink>
+            </li>
+            <li>
               <Link to="/" onClick={() => logout()}>
                 Logout
               </Link>
