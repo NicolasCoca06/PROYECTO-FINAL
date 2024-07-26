@@ -10,7 +10,8 @@ import authRoutes from "./routes/auth.routes.js";
 import betsRoutes from "./routes/bets.routes.js";
 import apiSportsLiveScores from './routes/apiSportsLiveScores.routes.js';
 import apiSportsUpcomingRoutes from './routes/apiSportsUpcoming.routes.js';
-import recommenderRoutes from './routes/recommender.routes.js';  
+import apiSportsFixturesOddsRoutes from './routes/apiSportsFixturesOdds.routes.js';
+//import recommenderRoutes from './routes/recommender.routes.js';  
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 
@@ -28,7 +29,8 @@ app.use("/api/auth", authRoutes);
 app.use("/api", betsRoutes);
 app.use("/api", apiSportsLiveScores);
 app.use("/api", apiSportsUpcomingRoutes);
-app.use('/api', recommenderRoutes);
+app.use("/api", apiSportsFixturesOddsRoutes);
+//app.use('/api', recommenderRoutes);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/dist"));
@@ -36,13 +38,5 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.resolve("client", "dist", "index.html"));
   });
 }
-
-app.get('/upcomingEvents', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'upcomingEvents.html'));
-});
-
-app.get('/liveScores', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'liveScores.html'));
-});
 
 export default app;

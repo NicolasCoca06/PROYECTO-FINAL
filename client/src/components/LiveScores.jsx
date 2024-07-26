@@ -6,7 +6,7 @@ const LiveScores = () => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        fetch('http://localhost:4000/api/fixtures')
+        fetch('http://localhost:4000/api/fixtures/live')
         .then(res => {
             if (!res.ok) {
                 throw new Error('Network response was not ok ' + res.statusText);

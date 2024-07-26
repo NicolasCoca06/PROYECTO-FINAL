@@ -9,13 +9,13 @@ router.get('/fixtures', function(req, res) {
     // Fetch upcoming fixtures
     const options = {
         method: 'GET',
-        url: 'https://v3.football.api-sports.io/odds/live',
+        url: 'https://v3.football.api-sports.io/fixtures',
         qs: {
             next: 99, // Number of upcoming fixtures
         },
         headers: {
             'x-rapidapi-host': 'v3.football.api-sports.io',
-            'x-rapidapi-key': 'e33f6fc0381026d43eceefb46c518915'
+            'x-rapidapi-key': '886ea29b15da1b3c6297acf6910fe5ae'
         }
     };
 
