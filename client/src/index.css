@@ -41,3 +41,23 @@ body {
 .filter-form {
   margin-bottom: 20px;
 }
+
+.odds-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+.recommendation-result {
+  background-color: #333; 
+  color: white; 
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
