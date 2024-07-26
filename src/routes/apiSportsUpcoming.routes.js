@@ -16,7 +16,7 @@ router.get('/fixtures', function(req, res) {
         },
         headers: {
             'x-rapidapi-host': 'v3.football.api-sports.io',
-            'x-rapidapi-key': '2c423c2a6540092a28f4e1650c7644c1'
+            'x-rapidapi-key': '7dbd6cf666ed28a580f0f99c49416c8d'
         }
     };
 
