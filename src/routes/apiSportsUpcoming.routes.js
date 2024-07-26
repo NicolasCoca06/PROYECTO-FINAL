@@ -3,10 +3,11 @@ import request from 'request';
 
 const router = express.Router();
 
-// GET upcoming fixtures with pagination
+// GET upcoming fixtures with optional date and team filters
 router.get('/fixtures', function(req, res) {
+    const date = req.query.date;
+    const teamName = req.query.team;
 
-    // Fetch upcoming fixtures
     const options = {
         method: 'GET',
         url: 'https://v3.football.api-sports.io/fixtures',
@@ -24,7 +25,24 @@ router.get('/fixtures', function(req, res) {
             res.status(500).send(error.message);
         } else {
             const data = JSON.parse(body);
-            res.json(data);
+            let filteredFixtures = data.response;
+
+            if (date) {
+                // Filter fixtures by date
+                filteredFixtures = filteredFixtures.filter(fixture =>
+                    new Date(fixture.fixture.date).toISOString().split('T')[0] === date
+                );
+            }
+
+            if (teamName) {
+                // Filter fixtures by team name
+                filteredFixtures = filteredFixtures.filter(fixture =>
+                    fixture.teams.home.name.toLowerCase().includes(teamName.toLowerCase()) ||
+                    fixture.teams.away.name.toLowerCase().includes(teamName.toLowerCase())
+                );
+            }
+
+            res.json({ response: filteredFixtures });
         }
     });
 });
