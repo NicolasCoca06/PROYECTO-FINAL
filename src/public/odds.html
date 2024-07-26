@@ -69,6 +69,14 @@
         .live-scores-button:hover {
             background: #0056b3;
         }
+        .bet-details {
+            display: none;
+            margin-top: 10px;
+            background: #f8f9fa;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
@@ -99,12 +107,20 @@
                             vs
                             ${fixture.teams.away.name}
                             <img src="${fixture.teams.away.logo}" alt="${fixture.teams.away.name}">
+                            value: ${fixture.odds.values.value} ${fixture.odds.values.odd} 
                         </h2>
                         <p>Date: ${formattedDate}</p>
                         <div class="bet-options">
-                            <button class="bet-button">Home Win</button>
-                            <button class="bet-button">Draw</button>
-                            <button class="bet-button">Away Win</button>
+                            <button class="bet-button" onclick="showBetDetails('home', ${fixture.fixture.id})">Home Win</button>
+                            <button class="bet-button" onclick="showBetDetails('draw', ${fixture.fixture.id})">Draw</button>
+                            <button class="bet-button" onclick="showBetDetails('away', ${fixture.fixture.id})">Away Win</button>
+                        </div>
+                        <div class="bet-details" id="bet-details-${fixture.fixture.id}">
+                            <p><strong>Value:</strong> <span class="bet-value"></span></p>
+                            <p><strong>Odd:</strong> <span class="bet-odd"></span></p>
+                            <p><strong>Handicap:</strong> <span class="bet-handicap"></span></p>
+                            <p><strong>Main:</strong> <span class="bet-main"></span></p>
+                            <p><strong>Suspended:</strong> <span class="bet-suspended"></span></p>
                         </div>
                     `;
 
@@ -112,6 +128,26 @@
                 });
             })
             .catch(error => console.error('Error fetching fixtures:', error));
+
+        function showBetDetails(betType, fixtureId) {
+            // Simulate fetching bet details (you can replace this with a real API call)
+            const betDetails = {
+            
+               // value: '100',
+               // odd: '2.5',
+               // handicap: '1.0',
+               // main: 'yes',
+               // suspended: 'no'
+            };
+
+            const betDetailsDiv = document.getElementById(`bet-details-${fixtureId}`);
+            betDetailsDiv.querySelector('.bet-value').innerText = betDetails.value;
+            betDetailsDiv.querySelector('.bet-odd').innerText = betDetails.odd;
+            betDetailsDiv.querySelector('.bet-handicap').innerText = betDetails.handicap;
+            betDetailsDiv.querySelector('.bet-main').innerText = betDetails.main;
+            betDetailsDiv.querySelector('.bet-suspended').innerText = betDetails.suspended;
+            betDetailsDiv.style.display = 'block';
+        }
 
         function goToLiveScores() {
             window.location.href = '/liveScores.html';

@@ -30,6 +30,7 @@ app.use("/api", betsRoutes);
 app.use("/api", apiSportsLiveScores);
 app.use("/api", apiSportsUpcomingRoutes);
 app.use("/api", apiSportsFixturesOddsRoutes);
+
 //app.use('/api', recommenderRoutes);
 
 if (process.env.NODE_ENV === "production") {
@@ -38,5 +39,11 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.resolve("client", "dist", "index.html"));
   });
 }
+//if (process.env.NODE_ENV === "production") {
+// app.use(express.static("client/dist"));
+//  app.get("*", (req, res) => {
+//    res.sendFile(path.resolve("client", "dist", "index.html"));
+//  });
+//}
 
 export default app;
