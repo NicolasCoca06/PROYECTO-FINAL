@@ -9,6 +9,7 @@ import { getRecommendations } from "../services/api";
 export function BetsPage() {
   const { bets, getBets } = useBets();
   const [recommendation, setRecommendation] = useState('');  
+
   useEffect(() => {
     getBets();
   }, []);
@@ -41,15 +42,18 @@ export function BetsPage() {
           <BetCard bet={bet} key={bet._id} />
         ))}
       </div>
-      <button onClick={handleGetRecommendations} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+      
+      <button onClick={handleGetRecommendations} className="mt-4 bg-blue-500 text-white px-4 py-2 rounded">
         Get Recommendations
       </button>
+
       {recommendation && (
-        <div className="mt-4 bg-gray-100 border border-gray-200 p-4 rounded">
+        <div className="mt-4 recommendation-result">
           <h2 className="text-lg font-semibold">Recommendations:</h2>
           <p>{recommendation}</p>
         </div>
       )}
+      
       <LiveScores />
       <UpcomingEventsPage />
     </>

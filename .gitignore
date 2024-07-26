@@ -1,2 +1,4 @@
 node_modules
 .env
+recommendation_service/__pycache__/bet_recommender.cpython-312.pyc
+recommendation_service/__pycache__/config.cpython-312.pyc

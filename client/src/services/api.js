@@ -1,15 +1,10 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:4000/api';
+const RECOMMENDER_API_URL = 'http://localhost:5000';
 
-const axiosInstance = axios.create({
-  baseURL: API_URL,
-  withCredentials: true, 
-});
-
-export const getRecommendations = async (prompt) => {
+export const getRecommendations = async (user_id) => {
   try {
-    const response = await axiosInstance.post('/recommend', { prompt });
+    const response = await axios.post(`${RECOMMENDER_API_URL}/recommend`, { user_id });
     return response.data.recommendations;
   } catch (error) {
     console.error('Error fetching recommendations:', error);

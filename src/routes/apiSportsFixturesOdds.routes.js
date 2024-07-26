@@ -14,7 +14,7 @@ function fetchOdds(fixtureId) {
             },
             headers: {
                 'x-rapidapi-host': 'v3.football.api-sports.io',
-                'x-rapidapi-key': 'e33f6fc0381026d43eceefb46c518915'
+                'x-rapidapi-key': '2c423c2a6540092a28f4e1650c7644c1'
             }
         };
 
@@ -39,7 +39,7 @@ router.get('/fixtures-odds', async function(req, res) {
             qs: { live: 'all' },
             headers: {
                 'x-rapidapi-host': 'v3.football.api-sports.io',
-                'x-rapidapi-key': 'e33f6fc0381026d43eceefb46c518915'
+                'x-rapidapi-key': '2c423c2a6540092a28f4e1650c7644c1'
             }
         };
 
