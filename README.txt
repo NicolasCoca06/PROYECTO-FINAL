@@ -6,3 +6,4 @@ go to the path ../PROTECTO-FINAL
 Use the npm run dev command
 execute with the assigned port
 project for Ai for SE course summer school
+..
